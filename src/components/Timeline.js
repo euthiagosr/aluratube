@@ -6,6 +6,7 @@ export const StyledTimeline = styled.div`
   height: 100%;
   padding: 6px;
   overflow: hidden;
+  background-color: #F9F9F9;
   h2 {
     font-size: 16px;
     margin-bottom: 16px;
@@ -29,9 +30,8 @@ export const StyledTimeline = styled.div`
       display: grid;
       grid-gap: 16px;
       grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
-      grid-auto-flow: column;
+      grid-auto-flow: row;
       grid-auto-columns: minmax(200px,1fr);
-      overflow-x: scroll;
       scroll-snap-type: x mandatory;
       a {
         scroll-snap-align: start;

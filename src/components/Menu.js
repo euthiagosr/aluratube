@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import config from "../../config.json";
 
 const StyledMenu = styled.header`
   display: flex;
@@ -12,6 +13,7 @@ const StyledMenu = styled.header`
   gap: 16px;
   position: fixed;
   width: 100%;
+  cursor: pointer;
   .logo {
     width: 100%;
     max-width: 80px;
@@ -22,6 +24,34 @@ const StyledMenu = styled.header`
       fill: ${({ theme }) => theme.textColorBase || "#222222"};
     }
   }
+  .search-bar{
+    display: flex;
+    .search-input{
+      border-radius: 15px 0px 0px 15px;
+      height: 100%;
+      width: 100%;
+      padding: 5px;
+    }
+    .input-button{
+      border: 1px solid black;
+      border-radius: 0px 15px 15px 0px;
+      height: 100%;
+      width: 10%;
+      padding: 13.5px;
+      background-color: grey;
+    }
+  }
+  .icons-bar{
+    display: flex;
+    width: 150px;
+    height: 100%;
+    .icon-balls{
+      margin-right: 10px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+  }
 `;
 
 export default function Menu() {
@@ -29,6 +59,12 @@ export default function Menu() {
     <StyledMenu>
       <div>
         <Logo />
+      </div>
+      <div>
+        <SearchBar />
+      </div>
+      <div>
+        <IconsBar />
       </div>
     </StyledMenu>
   );
@@ -47,3 +83,24 @@ function Logo() {
     </svg>
   )
 }
+
+function SearchBar() {
+  return (
+    <div className="search-bar">
+      <input type={"text"} className="search-input" placeholder="Pesquisar"></input>
+      <a className="input-button"></a>
+    </div>
+  )
+}
+
+function IconsBar() {
+  return (
+    <div className="icons-bar">
+      <a><img className="icon-balls" src={config.ytCameraIco}/></a>
+      <a><img className="icon-balls" src={config.ytRingIco}/></a>
+      <a><img className="icon-balls" src={`https://github.com/${config.github}.png`}/></a>
+    </div>
+  )
+}
+
+

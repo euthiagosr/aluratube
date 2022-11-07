@@ -2,6 +2,7 @@ import config from "../config.json";
 import styled from "styled-components";
 import { CSSReset } from "../src/components/CSSReset";
 import { StyledTimeline } from "../src/components/Timeline";
+import Banner from "../src/components/Banner";
 import Menu from "../src/components/Menu"; 
 
 function HomePage() {
@@ -14,6 +15,7 @@ function HomePage() {
         flex: 1
       }}>
         <Menu />
+        <Banner />
         <Header />
         <Timeline playlists={config.playlists} />
       </div>
@@ -35,7 +37,6 @@ const StyledHeader = styled.div`
     width: 100%;
     padding: 16px 32px;
     gap: 16px;
-    margin-top: 50px;
   }
 `;
 function Header() {
