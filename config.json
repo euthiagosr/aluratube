@@ -1,0 +1,36 @@
+{
+    "name" : "Thiago Rodrigues",
+    "job" : "Salesforce Developer",
+    "github" : "euthiagosr",
+    "playlists" : {
+        "games" : [
+            {
+                "title" : "598►Nane OROCHIMARU VS FIGHTFAKES►KOF 15",
+                "url" : "https://www.youtube.com/watch?v=PS8CRKRW41E",
+                "thumb" : "https://i.ytimg.com/vi/PS8CRKRW41E/hq720_live.jpg?sqp=CJC-pZsG-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCpMtHW2M4_vGXUF-yXxZlnqepFYQ"
+            },
+            {
+                "title" : "O K9999 JOGOU MUITO BEM ESSA PARTIDA] ► KOF_da_Depressao vs Nane(OROCHIMARU)",
+                "url" : "https://www.youtube.com/watch?v=UMZJ6Ga3FBw",
+                "thumb" : "https://i.ytimg.com/an_webp/_C4ZvHmpm5w/mqdefault_6s.webp?du=3000&sqp=CLS2pZsG&rs=AOn4CLDj5ZSJwltDVBYXzTRlMeJOEemoyg"
+            },
+            {
+                "title" : "TUTORIAL BASICO DE CHANG,MATURE,VICE NA PRÁTICA GAMEPLAY EXPLICATIVA",
+                "url" : "https://www.youtube.com/watch?v=odTB_ERrdUA",
+                "thumb" : "https://i.ytimg.com/an_webp/odTB_ERrdUA/mqdefault_6s.webp?du=3000&sqp=CKCTpZsG&rs=AOn4CLCW1m7iw04vyxorzYknxHeuP65OEg"
+            }
+        ],
+        "courses" : [
+            {
+                "title" : "useRef: como funciona esse React Hook | #AluraMais",
+                "url" : "https://www.youtube.com/watch?v=BwRxBGsT_f0",
+                "thumb" : "https://i.ytimg.com/an_webp/BwRxBGsT_f0/mqdefault_6s.webp?du=3000&sqp=CMG5pZsG&rs=AOn4CLDcczPeUeYq82yyS_s_nhCxs0iJsg"
+            },
+            {
+                "title" : "Como começar com React ainda em 2022",
+                "url" : "https://www.youtube.com/watch?v=35jb4FeQSe4",
+                "thumb" : "https://i.ytimg.com/an_webp/35jb4FeQSe4/mqdefault_6s.webp?du=3000&sqp=CKCUpZsG&rs=AOn4CLDEhRejkkAHkYDmyxHU5QYu5eQxsg"
+            }
+        ]
+    }
+}
