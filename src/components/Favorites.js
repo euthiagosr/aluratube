@@ -42,7 +42,7 @@ export default function Favorites(fav) {
       {favLst.map((favoriteName) => {
         const favorite = fav.favorites[favoriteName];
         return (
-          <div className="fav-thumb">
+          <div className="fav-thumb" key={favoriteName}>
             <a href={favorite.url}>
               <img src={favorite.image} />
               <p>{favorite.name}</p>
