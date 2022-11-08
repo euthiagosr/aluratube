@@ -4,6 +4,7 @@ import { CSSReset } from "../src/components/CSSReset";
 import { StyledTimeline } from "../src/components/Timeline";
 import Banner from "../src/components/Banner";
 import Menu from "../src/components/Menu"; 
+import Favorites from "../src/components/Favorites"; 
 
 function HomePage() {
   return (
@@ -18,6 +19,7 @@ function HomePage() {
         <Banner />
         <Header />
         <Timeline playlists={config.playlists} />
+        <Favorites favorites={config.favorites} />
       </div>
     </>
   );
@@ -56,7 +58,7 @@ function Header() {
 
 function Timeline(props) {
   const playlists = Object.keys(props.playlists);
-
+  console.log('TSR === playlists: ',playlists);
   return (
     <StyledTimeline>
       {playlists.map((playlistName) => {

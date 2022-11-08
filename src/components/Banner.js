@@ -8,6 +8,7 @@ display: flex;
   overflow: hidden;
   img{
     width: 100%;
+    object-fit: cover;
   }
 `;
 
