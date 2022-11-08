@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components"
 
 const StyledSearch = styled.div`
@@ -34,14 +33,7 @@ const StyledSearch = styled.div`
   }
 `;
 
-// Home 
-// Menu
-// Search
-// Informação sempre desce
-
 export default function Search({ filterValue, setFilterValue }) {
-    // const [valorDaBusca, setValorDaBusca] = React.useState("Teste");
-    // console.log("Search", valorDaBusca)
     const valorDaBusca = filterValue;
     const setValorDaBusca = setFilterValue;
 
