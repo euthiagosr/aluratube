@@ -6,7 +6,6 @@ export const StyledTimeline = styled.div`
   height: 100%;
   padding: 6px;
   overflow: hidden;
-  background-color: #F9F9F9;
   h2 {
     font-size: 16px;
     margin-bottom: 16px;

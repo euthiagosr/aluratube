@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import config from "../../../config.json";
 import Search from "./components/Search";
+import DarkModeSwitch from "./components/DarkModeSwitch";
 
 const StyledMenu = styled.header`
   display: flex;
@@ -38,17 +39,17 @@ const StyledMenu = styled.header`
   }
 `;
 
-export default function Menu({ filterValue, setFilterValue }) {
+export default function Menu({ filterValue, setFilterValue, toggleTheme, theme}) {
   return (
     <StyledMenu>
       <div>
         <Logo />
       </div>
       <div>
-        <Search filterValue={filterValue} setFilterValue={setFilterValue}/>
+        <Search filterValue={filterValue} setFilterValue={setFilterValue} />
       </div>
       <div>
-        <IconsBar />
+        <DarkModeSwitch toggleTheme={toggleTheme} theme={theme}/>
       </div>
     </StyledMenu>
   );
