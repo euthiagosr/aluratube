@@ -40,6 +40,9 @@ export const StyledTimeline = styled.div`
           padding-right: 24px;
           color: ${({ theme }) => theme.textColorBase || "#222222"};
         }
+        h2{
+          font-weight: lighter;
+        }
       }
     }
   }
