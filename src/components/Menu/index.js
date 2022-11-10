@@ -15,7 +15,6 @@ const StyledMenu = styled.header`
   gap: 16px;
   position: fixed;
   width: 100%;
-  cursor: pointer;
   .logo {
     width: 100%;
     max-width: 80px;
@@ -26,31 +25,16 @@ const StyledMenu = styled.header`
       fill: ${({ theme }) => theme.textColorBase || "#222222"};
     }
   }
-  .icons-bar{
-    display: flex;
-    width: 150px;
-    height: 100%;
-    .icon-balls{
-      margin-right: 10px;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-    }
-  }
 `;
 
-export default function Menu({ filterValue, setFilterValue, toggleTheme, theme}) {
+export default function Menu({ filterValue, setFilterValue}) {
   return (
     <StyledMenu>
       <div>
         <Logo />
       </div>
-      <div>
         <Search filterValue={filterValue} setFilterValue={setFilterValue} />
-      </div>
-      <div>
-        <DarkModeSwitch toggleTheme={toggleTheme} theme={theme}/>
-      </div>
+        <DarkModeSwitch />
     </StyledMenu>
   );
 }

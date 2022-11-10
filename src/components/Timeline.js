@@ -6,6 +6,7 @@ export const StyledTimeline = styled.div`
   height: 100%;
   padding: 6px;
   overflow: hidden;
+  background-color: ${ ({theme}) => theme.backgroundBase };
   h2 {
     font-size: 16px;
     margin-bottom: 16px;
@@ -39,9 +40,6 @@ export const StyledTimeline = styled.div`
           display: block;
           padding-right: 24px;
           color: ${({ theme }) => theme.textColorBase || "#222222"};
-        }
-        h2{
-          font-weight: lighter;
         }
       }
     }

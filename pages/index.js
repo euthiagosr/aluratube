@@ -1,12 +1,9 @@
 import React from "react";
 import config from "../config.json";
 import styled from "styled-components";
-import { CSSReset } from "../src/components/CSSReset";
 import { StyledTimeline } from "../src/components/Timeline";
 import Menu from "../src/components/Menu"; 
 import Favorites from "../src/components/Favorites"; 
-import { ThemeProvider } from "styled-components";
-import { lightTheme, darkTheme, GlobalStyles } from "../src/components/Menu/components/DarkModeSwitch";
 
 const StyledBanner = styled.div`
 display: flex;
@@ -19,6 +16,7 @@ display: flex;
 `;
 
 const StyledHeader = styled.div`
+background-color: ${ ({theme}) => theme.backgroundLevel1};
   img {
     width: 80px;
     height: 80px;
@@ -35,31 +33,20 @@ const StyledHeader = styled.div`
 
 function HomePage() {
   const [filterValue, setFilterValue] = React.useState("");
-  const [theme, setTheme] = React.useState("light");
-
-  const toggleTheme = () => {
-    theme == 'light' ? setTheme('dark') : setTheme('light')
-  }
 
   return (
-    <ThemeProvider theme={theme == 'light' ? lightTheme : darkTheme}>
-        <GlobalStyles />
-        <CSSReset />
-        <div style={{
-          display: "flex",
-          flexDirection: "column",
-          flex: 1
-        }}>
-          <Menu filterValue={filterValue} 
-                setFilterValue={setFilterValue} 
-                toggleTheme={toggleTheme}
-                theme={theme} />
-          <StyledBanner bgImage={config.banner} />
-          <Header />
-          <Timeline playlists={config.playlists} videoFilterValue={filterValue} />
-          <Favorites favorites={config.favorites} />
-        </div>
-      </ThemeProvider>
+    <>
+      <div style={{
+        display: "flex",
+        flexDirection: "column",
+        flex: 1
+      }}>
+        <Menu filterValue={filterValue} setFilterValue={setFilterValue}/>
+        <Header />
+        <Timeline playlists={config.playlists} videoFilterValue={filterValue} />
+        <Favorites favorites={config.favorites} />
+      </div>
+    </>
   );
 }
 
@@ -69,8 +56,8 @@ export default HomePage;
 function Header() {
   return (
     <StyledHeader>
+      <StyledBanner bgImage={config.banner} />
       <section className="user-info">
-        {/*<img src="banner" />*/}
         <img src={`https://github.com/${config.github}.png`} />
         <div>
           <h2>{config.name}</h2>
@@ -97,9 +84,9 @@ function Timeline({ videoFilterValue,  ...props }) {
                   return titleNormalized.includes(searchValueNormalized)
                 }).map((video) => {
                   return (
-                    <a href={video.url} key={video.url}>
+                      <a href={video.url} key={video.url}>
                       <img src={video.thumb} />
-                      <h2>{video.title}</h2>
+                      <span>{video.title}</span>
                     </a>
                   );
                 })}
