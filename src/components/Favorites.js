@@ -4,6 +4,11 @@ const FavoritesStyle = styled.div`
   width: 100%;
   height: 200px;
   margin-left: 20px;
+  a{
+    text-decoration: none;
+    text-align: center;
+    color: ${ ({theme}) => theme.textColorBase};
+  }
   .fav-title{
     width: 100%;
     height: auto;

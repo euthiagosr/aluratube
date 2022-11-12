@@ -19,6 +19,7 @@ export const StyledTimeline = styled.div`
     width: 100%;
     max-width: 210px;
     height: auto;
+    border-radius: 15px;
   }
   section {
     width: 100%;
@@ -26,6 +27,7 @@ export const StyledTimeline = styled.div`
     overflow: hidden;
     padding: 16px;
     div {
+      border-radius: 15px;
       width: calc(100vw - 16px * 4);
       display: grid;
       grid-gap: 16px;

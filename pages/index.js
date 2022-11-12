@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { StyledTimeline } from "../src/components/Timeline";
 import Menu from "../src/components/Menu"; 
 import Favorites from "../src/components/Favorites"; 
+import { videoService } from "../src/Services/videoService";
 
 const StyledBanner = styled.div`
 display: flex;
@@ -31,8 +32,48 @@ background-color: ${ ({theme}) => theme.backgroundLevel1};
   }
 `;
 
+//Method to add to config.json videos to the list videos from the database
+function preparePlaylistRecords(newPlayslist){
+  
+  const records = Object.keys(config.playlists);
+
+  records.map((playlist) => {
+    config.playlists[playlist].map((video) => {
+      const videoToAdd = {playlist: playlist, title: "", url: "", thumb: ""};
+
+      videoToAdd.title = video.title;
+      videoToAdd.url = video.url;
+      videoToAdd.thumb = video.thumb;
+
+      if(!newPlayslist[videoToAdd.playlist]){
+        newPlayslist[videoToAdd.playlist] = [];
+      }
+      newPlayslist[videoToAdd.playlist].push(videoToAdd);
+    })
+  })
+
+  return newPlayslist;
+}
+
 function HomePage() {
   const [filterValue, setFilterValue] = React.useState("");
+  const [playlists, setPlaylists] = React.useState({});
+  const service = videoService();
+
+  React.useEffect(() => {
+                service.getAllVideos()
+                  .then((dados) => {
+                    var newPlayslist = {};
+                    dados.data.forEach((video) => {
+                        if(!newPlayslist[video.playlist]){
+                            newPlayslist[video.playlist] = [];
+                        }
+                        newPlayslist[video.playlist].push(video);
+                    })
+                    preparePlaylistRecords(newPlayslist);
+                    setPlaylists(newPlayslist);
+                });
+  },[]);
 
   return (
     <>
@@ -43,7 +84,7 @@ function HomePage() {
       }}>
         <Menu filterValue={filterValue} setFilterValue={setFilterValue}/>
         <Header />
-        <Timeline playlists={config.playlists} videoFilterValue={filterValue} />
+        <Timeline playlists={playlists} videoFilterValue={filterValue} />
         <Favorites favorites={config.favorites} />
       </div>
     </>
@@ -69,11 +110,13 @@ function Header() {
 }
 
 function Timeline({ videoFilterValue,  ...props }) {
+  console.log('TSR === videosLst: ' , props.playlists);
   const playlists = Object.keys(props.playlists);
   return (
       <StyledTimeline>
         {playlists.map((playlistName) => {
           const videosLst = props.playlists[playlistName];
+          
           return (
             <section key={playlistName}>
               <h2 style={{ textTransform: "capitalize" }}>{playlistName}</h2>
